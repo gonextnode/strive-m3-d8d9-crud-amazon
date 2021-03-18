@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!--
-          
-            You are building the new Amazon.
+   <!--
+            START FROM YESTERDAY'S WORK
+
+             You are building the new Amazon.
             This time you are also responsible for the back office.
 
             THIS is you CRUD endpoint
@@ -37,8 +35,18 @@
 
             Today you have to implement:
 
-            - A backoffice page, where you can insert the product by specifying the parameters
-            - A front page, where the user can see the available products
+            - In the backoffice page
+                a) Add a button and the functionality to EDIT a single product ( PUT  endpoint/{id})
+                b) Add a button and the functionality to DELETE a single product ( DELETE endpoint/{id})
+                c) Add validation to the product creation/edit form
+                d) Display an error message if something goes wrong
+
+            - In the front page
+                a) Add a loader while waiting for the product to load
+                b) Add a link on each item to go to a detail page
+
+            - Create a new detail page where you are going to display the item information
+
 
             ------ N.B. ------
 
@@ -49,23 +57,4 @@
                 "username": "testusername@yourmail.com",
                 "password":"pass"
             }   
-
         -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-    <script src="index.js" type="module"></script>
-  </body>
-</html>
