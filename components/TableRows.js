@@ -1,7 +1,6 @@
 export const TableRows = async (targetElement, getProducts) => {
   const data = await getProducts()
 
-  console.table(data)
 
   const element = document.querySelector(targetElement)
   const renderRows = data
@@ -19,9 +18,13 @@ export const TableRows = async (targetElement, getProducts) => {
           <td>${product.userId}</td>
           <td>${product.createdAt}</td>
           <td>${product.updatedAt}</td>
-        </tr>`
+          <td><button id="delete-${i}" data-id="${product._id}" class="btn btn-outline-danger btn-sm">Del</button>
+        </tr > `
     )
     .join('')
 
   element.innerHTML = renderRows
+
+  const selected = document.getElementById('delete-4')
+  console.log(selected.getAttribute('data-id'))
 }

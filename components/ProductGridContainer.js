@@ -1,17 +1,19 @@
+
+
 export async function ProductGridContainer(targetElement, getProducts) {
+  console.log(targetElement)
   const data = await getProducts()
-  console.table(data)
-  const { name, brand, price, imageUrl, description } = data
-  //const element = document.getElementById('product-grid')
-  //const productGrid = 
-  return await /*html*/`
-     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+  const element = document.getElementById(targetElement)
+  const productGrid = data.map(({ name, brand, price, imageUrl, description }) => (/*html*/`
+    <div class="card shadow-sm hover rounded col m-2" style="width: 18rem;">
+        <img src="${imageUrl}" class="card-img-top p-4" alt="...">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text text-truncate">${description}</p>
+          <a href="#" class="btn btn-sm btn-dark">More</a>
         </div>
       </div>
   `
+  )).join("")
+  element.innerHTML = productGrid
 }

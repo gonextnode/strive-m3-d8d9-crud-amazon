@@ -1,11 +1,12 @@
 import { TableRows } from './TableRows.js'
 
+
 export const TableContainer = async (targetElement, getProducts) => {
   const products = await getProducts()
 
   const element = document.querySelector(targetElement)
   element.innerHTML = /*html*/`
-  <div class="container-fluid">
+  <div class="container">
     <table class="table table-striped table-hover">
       <thead>
         <tr>

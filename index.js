@@ -2,20 +2,23 @@ import { Navbar } from './components/NavbarComponent.js'
 import { ProductGridContainer } from './components/ProductGridContainer.js'
 import { getProducts } from './api/products.api.js'
 
+const routes = {
+  home: '/',
+  admin: './pages/admin/admin.html'
+}
+
 const HomePage = {
   render: () => {
-    //addProduct(state.product)
-
-    const routes = {
-      home: '/',
-      admin: './pages/admin/admin.html'
-    }
-
 
 
     return /*html*/ `
       ${Navbar(routes)}
-      <div id="product-grid">${ProductGridContainer('product-grid', getProducts)}</div>
+      <div style="container">
+        <div class="row flex-wrap m-5 " id="product-grid">
+          ${ProductGridContainer('product-grid', getProducts)}
+        </div>
+      </div>
+      
     `
   }
 }

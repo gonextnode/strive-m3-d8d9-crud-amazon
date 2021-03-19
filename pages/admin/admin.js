@@ -2,6 +2,8 @@ import { Navbar } from '../../components/NavbarComponent.js'
 import { addProduct, getProducts } from '../../api/products.api.js'
 import { TableContainer } from '../../components/TableContainer.js'
 import { AddProductForm } from '../../components/AddProductFormComponent.js'
+import { LoadingComponent } from '../../components/LoadingComponent.js'
+
 
 
 const AdminPage = {
@@ -25,8 +27,12 @@ const AdminPage = {
         }
 
         addProduct(product)
-
       })
+
+
+      const element = document.getElementById("delete-row")
+      console.log(element)
+
     }
   },
   render: function () {
@@ -37,13 +43,19 @@ const AdminPage = {
     }
 
 
-
-
     return /*html*/ `
       ${Navbar(routes)}
+      <div class="d-flex container">
+      <img width="300" src="https://www.clipartmax.com/png/middle/315-3159325_amazon-icon-amazon-logo-png-icon.png" alt="Amazon Icon - Amazon Logo Png Icon@clipartmax.com">
       ${AddProductForm()}
-      <div id="output">${TableContainer('#output', getProducts)}</div>
-    `
+      </div>
+      <div id="output">
+         <div class="d-flex mt-5 justify-content-center align-item-center">
+            ${LoadingComponent()}
+          </div >
+          ${TableContainer('#output', getProducts)}
+       </div >
+  `
   }
 }
 
